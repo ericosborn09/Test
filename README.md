@@ -4,11 +4,12 @@ A web application that calculates service charges based on tiered percentage rat
 
 ## Pricing Structure
 
-- $0 - $1,000: 15% service charge
-- $1,001 - $2,000: 14% service charge
-- $2,001 - $3,000: 13% service charge
-- And so on... (decreases by 1% per $1,000)
-- Minimum service charge: 0%
+| Event Spend | Service Charge % |
+|-------------|------------------|
+| $0 – $2,499 | 15% |
+| $2,500 – $7,499 | 14% |
+| $7,500 – $14,999 | 13% |
+| $15,000+ | 12% |
 
 ## Installation
 
@@ -59,17 +60,17 @@ Calculate service charge for a given amount.
 **Request Body:**
 ```json
 {
-  "amount": 1500
+  "amount": 5000
 }
 ```
 
 **Response:**
 ```json
 {
-  "amount": 1500,
+  "amount": 5000,
   "percentage": 14,
-  "serviceCharge": 210,
-  "total": 1710
+  "serviceCharge": 700,
+  "total": 5700
 }
 ```
 

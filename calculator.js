@@ -1,9 +1,10 @@
 /**
  * Calculate service charge based on amount
  * Rules:
- * - 0-1000: 15% service charge
- * - Decreases by 1% for every additional 1000
- * - Minimum service charge is 0%
+ * - $0 – $2,499: 15% service charge
+ * - $2,500 – $7,499: 14% service charge
+ * - $7,500 – $14,999: 13% service charge
+ * - $15,000+: 12% service charge
  *
  * @param {number} amount - The amount to calculate service charge for
  * @returns {object} - Object containing amount, percentage, and service charge
@@ -22,15 +23,17 @@ function calculateServiceCharge(amount) {
     };
   }
 
-  // Calculate which tier the amount falls into
-  // Amounts 1-1000 are tier 0, 1001-2000 are tier 1, etc.
-  const tier = Math.ceil(amount / 1000) - 1;
-
-  // Start at 15% and decrease by 1% per tier
-  let percentage = 15 - tier;
-
-  // Ensure percentage doesn't go below 0
-  percentage = Math.max(0, percentage);
+  // Determine service charge percentage based on amount tiers
+  let percentage;
+  if (amount < 2500) {
+    percentage = 15;
+  } else if (amount < 7500) {
+    percentage = 14;
+  } else if (amount < 15000) {
+    percentage = 13;
+  } else {
+    percentage = 12;
+  }
 
   const serviceCharge = (amount * percentage) / 100;
   const total = amount + serviceCharge;
