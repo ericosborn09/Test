@@ -1,0 +1,24 @@
+{
+  "name": "service-charge-calculator",
+  "version": "1.0.0",
+  "description": "Service charge calculator with tiered percentage rates",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["service", "charge", "calculator"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

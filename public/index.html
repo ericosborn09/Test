@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Charge Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Service Charge Calculator</h1>
+
+        <div class="info-box">
+            <h3>Pricing Structure</h3>
+            <ul>
+                <li>$0 - $1,000: <strong>15%</strong> service charge</li>
+                <li>$1,001 - $2,000: <strong>14%</strong> service charge</li>
+                <li>$2,001 - $3,000: <strong>13%</strong> service charge</li>
+                <li>And so on... (decreases by 1% per $1,000)</li>
+            </ul>
+        </div>
+
+        <div class="calculator-box">
+            <form id="calculator-form">
+                <div class="form-group">
+                    <label for="amount">Enter Amount ($):</label>
+                    <input
+                        type="number"
+                        id="amount"
+                        name="amount"
+                        step="0.01"
+                        min="0"
+                        placeholder="0.00"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn-calculate">Calculate</button>
+            </form>
+
+            <div id="result" class="result hidden">
+                <h3>Calculation Result</h3>
+                <div class="result-row">
+                    <span class="label">Base Amount:</span>
+                    <span class="value" id="result-amount">$0.00</span>
+                </div>
+                <div class="result-row">
+                    <span class="label">Service Charge Rate:</span>
+                    <span class="value" id="result-percentage">0%</span>
+                </div>
+                <div class="result-row">
+                    <span class="label">Service Charge:</span>
+                    <span class="value" id="result-service-charge">$0.00</span>
+                </div>
+                <div class="result-row total">
+                    <span class="label">Total Amount:</span>
+                    <span class="value" id="result-total">$0.00</span>
+                </div>
+            </div>
+
+            <div id="error" class="error hidden"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
