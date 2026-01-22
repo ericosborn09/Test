@@ -35,6 +35,12 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Service Charge Calculator running on port ${PORT}`);
-});
+// For Vercel serverless deployment
+module.exports = app;
+
+// For local development
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Service Charge Calculator running on port ${PORT}`);
+  });
+}
